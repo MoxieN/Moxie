@@ -1,0 +1,6 @@
+﻿bin/
+obj/
+.idea/
+.vs/
+.floo
+.flooignore
