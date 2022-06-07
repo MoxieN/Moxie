@@ -5,7 +5,6 @@ using Cosmos.System.FileSystem;
 using Cosmos.System.Network.Config;
 using Cosmos.System.Network.IPv4;
 using Cosmos.System.Network.IPv4.TCP;
-using Cosmos.System.Network.IPv4.TCP.FTP;
 using Cosmos.System.Network.IPv4.UDP.DHCP;
 
 namespace Moxie.Core.Network
@@ -18,20 +17,18 @@ namespace Moxie.Core.Network
 
             try
             {
-                Kernel.shell.Log("Initiating Network connection via DHCP...", 1);
+                Kernel.Log("Initiating Network connection via DHCP...", 1);
                 xClient.SendDiscoverPacket();
-                var ip = NetworkConfig.CurrentConfig.Value.IPAddress;
+                var ip = NetworkConfiguration.CurrentNetworkConfig.IPConfig.IPAddress;
 
                 xClient.Close();
 
-                if (ip.ToString() == "0.0.0.0")
-                    Kernel.shell.Log($"DHCP Discover failed. IP set to {ip}", 3);
-                else
-                    Kernel.shell.Log("Etablished Network connection via DHCP IPv4: " + ip, 2);
+                
+                Kernel.Log("Etablished Network connection via DHCP IPv4: " + ip, 2);    
             }
             catch (Exception ex)
             {
-                Kernel.shell.WriteLine("DHCP Discover failed. Can't apply dynamic IPv4 address. " + ex, type: 3);
+                Kernel.bird.WriteLine("DHCP Discover failed. Can't apply dynamic IPv4 address. " + ex);
             }
         }
 
@@ -43,15 +40,15 @@ namespace Moxie.Core.Network
 
                 IPConfig.Enable(nic, new Address(192, 168, 1, 69), new Address(255, 255, 255, 0),
                     new Address(192, 168, 1, 254));
-                var ip = NetworkConfig.CurrentConfig.Value.IPAddress;
-                var sn = NetworkConfig.CurrentConfig.Value.SubnetMask;
-                var gw = NetworkConfig.CurrentConfig.Value.DefaultGateway;
+                var ip = NetworkConfiguration.CurrentNetworkConfig.IPConfig.IPAddress;
+                var sn = NetworkConfiguration.CurrentNetworkConfig.IPConfig.SubnetMask;
+                var gw = NetworkConfiguration.CurrentNetworkConfig.IPConfig.DefaultGateway;
 
-                Kernel.shell.WriteLine($"Applied! IPv4: {ip} subnet mask: {sn} gateway: {gw}");
+                Kernel.bird.WriteLine($"Applied! IPv4: {ip} subnet mask: {sn} gateway: {gw}");
             }
             catch (Exception ex)
             {
-                Kernel.shell.WriteLine(ex.ToString(), type: 3);
+                Kernel.bird.WriteLine(ex.ToString());
             }
         }
 
@@ -76,9 +73,9 @@ namespace Moxie.Core.Network
 
             xClient.Close();
 
-            Kernel.shell.WriteLine(endpoint.ToString());
-            Kernel.shell.WriteLine(recvData.ToString());
-            Kernel.shell.WriteLine(finalData.ToString());
+            Kernel.bird.WriteLine(endpoint.ToString());
+            Kernel.bird.WriteLine(recvData.ToString());
+            Kernel.bird.WriteLine(finalData.ToString());
 
             return finalData;
         }
@@ -105,14 +102,15 @@ namespace Moxie.Core.Network
             return recvData;
         }
 
+        /*
         /// <summary>
-        /// </summary>
+        /// </summary>      FTP support dropped
         /// <param name="fs">Cosmos registered FS</param>
         /// <param name="localDirectory">Directory that the client will access</param>
         public void FTPconnect(CosmosVFS fs, string localDirectory)
         {
             using var xServer = new FtpServer(fs, localDirectory);
             xServer.Listen();
-        }
+        }*/
     }
 }

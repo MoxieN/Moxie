@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <!--<RuntimeIdentifier>cosmos</RuntimeIdentifier>-->
         <Platform>cosmos</Platform>
         <SupportsX86Intrinsics>false</SupportsX86Intrinsics>
@@ -160,7 +160,7 @@
         <StartCosmosGDB>False</StartCosmosGDB>
         <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
         <CosmosDebugPort>Serial: COM1</CosmosDebugPort>
-        <Launch>None</Launch>
+        <Launch>ISO</Launch>
         <Profile>ISO</Profile>
         <Description>Creates a bootable ISO image which can be burned to a DVD. After running the selected project, an explorer window will open containing the ISO file. The ISO file can then be burned to a CD or DVD and used to boot a physical or virtual system.</Description>
         <PxeInterface>192.168.0.8</PxeInterface>
@@ -180,19 +180,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Shell\Cmds\Console\" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PlugsReference Include="$(MSBuildProjectDirectory)\..\Moxie_Plugs\bin\Debug\net5.0\Moxie_Plugs.dll" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Bird" Version="1.1.20220606.55" />
         <PackageReference Include="Cosmos.Build" Version="0.1.0-localbuild">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild" />
+        <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20220526082157" />
     </ItemGroup>
 
 </Project>

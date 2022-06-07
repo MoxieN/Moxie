@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
+using Moxie.Commands;
+using Moxie.Core;
 using Moxie.Core.User;
-using Moxie.Shell;
-using Moxie.Shell.Cmds;
 using Sys = Cosmos.System;
 
 namespace Moxie
@@ -11,15 +11,13 @@ namespace Moxie
     {
         //vFS
         public static string CurrentDirectory = @"0:\";
-        public static readonly string CurrentVolume = @"0:\";
+        public static string CurrentVolume = @"0:\";
 
         //Instantiate
-        public static ShellManager shell = new();
-        public static CommandManager cManager = new();
+        public static Bird.Bird bird = new();
         public static Initializer init = new();
 
-        private readonly bool Debug = false;
-        public string Input { get; set; }
+        public static readonly bool Debug = false;
 
         protected override void BeforeRun()
         {
@@ -28,56 +26,75 @@ namespace Moxie
             init.vFS();
             init.DHCP();
 
-            shell.Log("Detecting SYSTEM folder", 1);
-            //FIXME: File not existing but open requested
+            Log("Detecting SYSTEM folder", 1);
             if (Debug == false && Directory.Exists(@"0:\SYSTEM\"))
             {
-                shell.Log("Found! SYSTEM folder", 2);
-                shell.Log("Checking hostname...", 1);
+                Log("Found! SYSTEM folder", 2);
+                Log("Checking hostname...", 1);
 
                 if (File.Exists(@"0:\SYSTEM\hostname.hs"))
-                    shell.Log($"Found! hostname: {File.ReadAllText(@"0:\SYSTEM\hostname.hs")}", 2);
+                    Log($"Found! hostname: {File.ReadAllText(@"0:\SYSTEM\hostname.hs")}", 2);
             }
             else if (Debug)
-            {
-                shell.Log("Skipped", 2);
-            }
+                Log("Skipped", 2);
             else
             {
-                shell.Log("SYSTEM folder not found!", 3);
+                Log("SYSTEM folder not found!", 3);
                 Setup setup = new();
                 setup.StartSetup();
             }
-
-            shell.Log("Initializing commands", 1);
-            cManager.RegisterCommands();
-            shell.Log("Done!", 2);
+            
+            Log("Dropping to Bird shell...", 1);
+            CommandRegister.RegisterCommands();
         }
 
         protected override void Run()
         {
             try
             {
-                Start(Debug == false ? File.ReadAllText(@"0:\SYSTEM\hostname.hs") : "Moxie");
-
-                Input = Console.ReadLine();
-                if (Input != null) cManager.ExecuteCommand(Input);
+                bird.HandleConsole(@"0:\SYSTEM\hostname.hs", CurrentDirectory);
             }
             catch (Exception ex)
             {
-                shell.WriteLine(ex.ToString(), type: 3);
+                bird.WriteLine(ex.ToString());
             }
         }
 
-        public void Start(string name)
+        #region Logs
+
+        /// <summary>
+        ///     Log only used for booting or Debug mode
+        /// </summary>
+        /// <param name="text">Text to output</param>
+        /// <param name="type">Type of log. 1:PROCESS 2:DONE 3:FAILED</param>
+        public static void Log(string text, int type)
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            shell.Write($"\n{name} ", ConsoleColor.Green);
-            if (CurrentDirectory == @"0:\")
-                shell.Write("~", ConsoleColor.Cyan);
-            else
-                shell.Write($@"~\{CurrentDirectory.Split(@"\")[1]}", ConsoleColor.Cyan);
-            shell.Write("#", ConsoleColor.Gray);
+            switch (type)
+            {
+                case 1:
+                    Console.Write("[ ");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("PROCESS");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(" ] " + text + "\n");
+                    break;
+                case 2:
+                    Console.Write("[ ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("DONE");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(" ] " + text + "\n");
+                    break;
+                case 3:
+                    Console.Write("[ ");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("FAILED");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(" ] " + text + "\n");
+                    break;
+            }
         }
+
+        #endregion
     }
 }
