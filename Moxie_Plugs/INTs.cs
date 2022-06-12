@@ -20,13 +20,19 @@ namespace Moxie_Plugs
                 
                 PutErrorString(0, 0, "Moxie crashed!");
                 PutErrorString(1, 0, "Please report the following error to the developer");
-                PutErrorString(3, 0, $"Error: CPU Exception x{xHex[(int)((ctx.Interrupt >> 4) & 0xF)]}{xHex[(int)(ctx.Interrupt & 0xF)]}");
+                
+                PutErrorString(3, 0, "Error Code: 0x");
+                PutErrorChar(3, 14, xHex[(int)((ctx.Interrupt >> 4) & 0xF)]);
+                PutErrorChar(3, 15, xHex[(int)(ctx.Interrupt & 0xF)]);
+
+                PutErrorString(5, 0, aName);
+                PutErrorString(6, 0, aDescription);
                 
                 if (lastKnownAddressValue != 0) {
-                    PutErrorString(4, 0, "Last known address: 0x");
+                    PutErrorString(8, 0, "Last known address: 0x");
 
-                    PutErrorChar(4, 22, xHex[(int)((lastKnownAddressValue >> 28) & 0xF)]);
-                    PutErrorChar(4, 23, xHex[(int)((lastKnownAddressValue >> 24) & 0xF)]);
+                    PutErrorChar(8, 22, xHex[(int)((lastKnownAddressValue >> 28) & 0xF)]);
+                    PutErrorChar(8, 23, xHex[(int)((lastKnownAddressValue >> 24) & 0xF)]);
                     PutErrorChar(4, 24, xHex[(int)((lastKnownAddressValue >> 20) & 0xF)]);
                     PutErrorChar(4, 25, xHex[(int)((lastKnownAddressValue >> 16) & 0xF)]);
                     PutErrorChar(4, 26, xHex[(int)((lastKnownAddressValue >> 12) & 0xF)]);

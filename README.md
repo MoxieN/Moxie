@@ -23,21 +23,21 @@
 Download most recent release ISO or build it yourself
 
 ## Build
-You must have Visual Studio 2019 with .NET 5.0 runtime support, .NET SDK and Runtime 5.0 installed.
+You must have Visual Studio 2022 with .NET 6.0 runtime support, .NET SDK and Runtime 6.0 installed.
 
-###### (be sure that Runtime .NET 5.0 is checked)
+###### (be sure that Runtime .NET 6.0 is checked)
 
 ![](Images/IMG-02.png)
 
-Download .NET SDK 5.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-5.0.406-windows-x64-installer) (Only 64-Bit Windows is supported by Cosmos at the moment)
+Download .NET SDK 6.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/) (Only 64-Bit Windows is supported by Cosmos at the moment)
 
-Download .NET Runtime 5.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-5.0.15-windows-x64-installer)
+Download .NET Runtime 6.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/)
 
 You also have to install Cosmos last DevKit (By cloning the project).
-Run `VS2019-INSTALL.bat`, make sure to click in the following dialog window to install the missing depedencies,
+Run `VS2022-INSTALL.bat`, make sure to click in the following dialog window to install the missing depedencies,
 wait for the installation to finish, click yes again to install inno setup and then it will install the just built Cosmos! (by default its installed on `C:\Users\username\AppData\Roaming\Cosmos User Kit`).
 
-Open Visual Studio 2019 and select `Open a project or a solution` and select the Moxie.sln from the Moxie_OS folder and then click the build icon on the top and the ISO should be generated in `Moxie_OS\bin\Debug\net5.0\Moxie.iso`!
+Open Visual Studio 2022 and select `Open a project or a solution` and select the Moxie.sln from the Moxie_OS folder and then click the build icon on the top and the ISO should be generated in `Moxie_OS\bin\Debug\net6.0\Moxie.iso`!
 
 ![](Images/IMG-01.png)
 

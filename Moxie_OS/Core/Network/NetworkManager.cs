@@ -32,23 +32,23 @@ namespace Moxie.Core.Network
             }
         }
 
-        public void ManualConnect(string networkDevice)
+        public void ManualConnect(Address ipAddress, Address subnet, Address gateway, string networkDevice = "eth0")
         {
             try
             {
                 var nic = NetworkDevice.GetDeviceByName(networkDevice);
 
-                IPConfig.Enable(nic, new Address(192, 168, 1, 69), new Address(255, 255, 255, 0),
-                    new Address(192, 168, 1, 254));
-                var ip = NetworkConfiguration.CurrentNetworkConfig.IPConfig.IPAddress;
-                var sn = NetworkConfiguration.CurrentNetworkConfig.IPConfig.SubnetMask;
-                var gw = NetworkConfiguration.CurrentNetworkConfig.IPConfig.DefaultGateway;
+                IPConfig.Enable(nic, ipAddress, subnet, gateway);
+                
+                Address ip = NetworkConfiguration.CurrentNetworkConfig.IPConfig.IPAddress;
+                Address sn = NetworkConfiguration.CurrentNetworkConfig.IPConfig.SubnetMask;
+                Address gw = NetworkConfiguration.CurrentNetworkConfig.IPConfig.DefaultGateway;
 
                 Kernel.bird.WriteLine($"Applied! IPv4: {ip} subnet mask: {sn} gateway: {gw}");
             }
             catch (Exception ex)
             {
-                Kernel.bird.WriteLine(ex.ToString());
+                Kernel.bird.WriteLine($"e: {ex}");
             }
         }
 
@@ -102,15 +102,19 @@ namespace Moxie.Core.Network
             return recvData;
         }
 
-        /*
+        
         /// <summary>
-        /// </summary>      FTP support dropped
+        /// Creates an active anonymous FTP connection, it will close after the client disconnected
+        /// </summary>
         /// <param name="fs">Cosmos registered FS</param>
         /// <param name="localDirectory">Directory that the client will access</param>
         public void FTPconnect(CosmosVFS fs, string localDirectory)
         {
-            using var xServer = new FtpServer(fs, localDirectory);
+            Kernel.bird.WriteLine("Creating FTP server...");
+            using var xServer = new CosmosFtpServer.FtpServer(fs, localDirectory);
+            Kernel.bird.WriteLine("Listening...");
             xServer.Listen();
-        }*/
+            Kernel.bird.WriteLine("Client connected.");
+        }
     }
 }

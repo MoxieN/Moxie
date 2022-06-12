@@ -12,7 +12,7 @@
         <Deployment>ISO</Deployment>
         <DebugMode>Source</DebugMode>
         <IgnoreDebugStubAttribute>False</IgnoreDebugStubAttribute>
-        <ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</ISOFile>
+        <ISOFile>bin\Debug\net6.0\Moxie_OS.iso</ISOFile>
         <CompileVBEMultiboot>False</CompileVBEMultiboot>
         <ExtractMapFile>False</ExtractMapFile>
         <VMware_StackCorruptionDetectionEnabled>True</VMware_StackCorruptionDetectionEnabled>
@@ -31,7 +31,7 @@
         <VMware_StartCosmosGDB>False</VMware_StartCosmosGDB>
         <VMware_EnableBochsDebug>True</VMware_EnableBochsDebug>
         <VMware_StartBochsDebugGui>False</VMware_StartBochsDebugGui>
-        <VMware_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</VMware_ISOFile>
+        <VMware_ISOFile>bin\Debug\net6.0\Moxie_OS.iso</VMware_ISOFile>
         <VMware_CompileVBEMultiboot>False</VMware_CompileVBEMultiboot>
         <VMware_ExtractMapFile>False</VMware_ExtractMapFile>
         <Bochs_StackCorruptionDetectionEnabled>True</Bochs_StackCorruptionDetectionEnabled>
@@ -50,7 +50,7 @@
         <Bochs_StartCosmosGDB>False</Bochs_StartCosmosGDB>
         <Bochs_EnableBochsDebug>True</Bochs_EnableBochsDebug>
         <Bochs_StartBochsDebugGui>False</Bochs_StartBochsDebugGui>
-        <Bochs_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</Bochs_ISOFile>
+        <Bochs_ISOFile>bin\Debug\net6.0\Moxie.iso</Bochs_ISOFile>
         <Bochs_CompileVBEMultiboot>False</Bochs_CompileVBEMultiboot>
         <Bochs_ExtractMapFile>True</Bochs_ExtractMapFile>
         <ISO_StackCorruptionDetectionEnabled>True</ISO_StackCorruptionDetectionEnabled>
@@ -169,6 +169,7 @@
         <EnableBochsDebug>True</EnableBochsDebug>
         <StartBochsDebugGui>False</StartBochsDebugGui>
         <AssemblyName>Moxie</AssemblyName>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -180,7 +181,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PlugsReference Include="$(MSBuildProjectDirectory)\..\Moxie_Plugs\bin\Debug\net5.0\Moxie_Plugs.dll" />
+      <None Include="..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PlugsReference Include="$(MSBuildProjectDirectory)\..\Moxie_Plugs\bin\Debug\net6.0\Moxie_Plugs.dll" />
     </ItemGroup>
 
     <ItemGroup>
@@ -190,6 +198,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20220526082157" />
+        <PackageReference Include="CosmosFtpServer" Version="1.0.1" />
     </ItemGroup>
 
 </Project>

@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>ClassLibrary1</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <AssemblyName>Moxie_Plugs</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20220311070325" />
-      <PackageReference Include="IL2CPU.API" Version="0.1.0-localbuild20220403090757" />
+      <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20220611062836" />
+      <PackageReference Include="IL2CPU.API" Version="0.1.0-localbuild20220611062836" />
     </ItemGroup>
 </Project>
