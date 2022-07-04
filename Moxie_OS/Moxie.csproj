@@ -181,10 +181,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="..\README.md">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -192,13 +192,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Bird" Version="1.1.20220606.55" />
+        <PackageReference Include="Bird" Version="1.1.20220704.37" />
         <PackageReference Include="Cosmos.Build" Version="0.1.0-localbuild">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20220526082157" />
         <PackageReference Include="CosmosFtpServer" Version="1.0.1" />
+        <PackageReference Include="Verde" Version="1.0.629.18" />
     </ItemGroup>
 
 </Project>

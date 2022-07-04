@@ -1,56 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Bird;
 
-namespace Moxie.Commands.FileSystem
+namespace Moxie.Commands.FileSystem;
+
+internal class CreateFile : Command
 {
-    internal class CreateFile : Command
+    public CreateFile(string[] commandvalues) : base(commandvalues)
     {
-        public CreateFile(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        CommandValues = commandvalues;
+    }
 
-        public override void Execute(List<string> args)
+    public override void Execute(List<string> args)
+    {
+        try
         {
-            try
-            {
-                System.IO.File.Create(Kernel.CurrentDirectory + @"\" + args[0]);
-            }
-            catch (Exception ex)
-            {
-                Kernel.bird.WriteLine($"e: {ex}");
-            }
+            File.Create(Kernel.CurrentDirectory + @"\" + args[0]);
         }
-
-        public override void Help()
+        catch (Exception ex)
         {
-            Kernel.bird.WriteLine("mkfile <name/directory+name> - Creates file to filesystem");
+            Kernel.bird.WriteLine($"e: {ex}");
         }
     }
 
-    internal class RemoveFile : Command
+    public override void Help()
     {
-        public RemoveFile(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        Kernel.bird.WriteLine("mkfile <name/directory+name> - Creates file to filesystem");
+    }
+}
 
-        public override void Execute(List<string> args)
+internal class RemoveFile : Command
+{
+    public RemoveFile(string[] commandvalues) : base(commandvalues)
+    {
+        CommandValues = commandvalues;
+    }
+
+    public override void Execute(List<string> args)
+    {
+        try
         {
-            try
-            {
-                System.IO.File.Delete(Kernel.CurrentDirectory + args[0]);
-            }
-            catch (Exception ex)
-            {
-                Kernel.bird.WriteLine($"e: {ex}");
-            }
+            File.Delete(Kernel.CurrentDirectory + @"\" + args[0]);
         }
-        
-        public override void Help()
+        catch (Exception ex)
         {
-            Kernel.bird.WriteLine("rmfile <name/directory+name> - Removes file from filesystem");
+            Kernel.bird.WriteLine($"e: {ex}");
         }
+    }
+
+    public override void Help()
+    {
+        Kernel.bird.WriteLine("rmfile <name/directory+name> - Removes file from filesystem");
     }
 }

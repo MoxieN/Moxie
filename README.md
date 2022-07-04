@@ -23,21 +23,25 @@
 Download most recent release ISO or build it yourself
 
 ## Build
+
 You must have Visual Studio 2022 with .NET 6.0 runtime support, .NET SDK and Runtime 6.0 installed.
 
 ###### (be sure that Runtime .NET 6.0 is checked)
 
 ![](Images/IMG-02.png)
 
-Download .NET SDK 6.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/) (Only 64-Bit Windows is supported by Cosmos at the moment)
+Download .NET SDK 6.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/) (Only 64-Bit Windows is supported by
+Cosmos at the moment)
 
 Download .NET Runtime 6.0 [Here](https://dotnet.microsoft.com/en-us/download/dotnet/)
 
 You also have to install Cosmos last DevKit (By cloning the project).
 Run `VS2022-INSTALL.bat`, make sure to click in the following dialog window to install the missing depedencies,
-wait for the installation to finish, click yes again to install inno setup and then it will install the just built Cosmos! (by default its installed on `C:\Users\username\AppData\Roaming\Cosmos User Kit`).
+wait for the installation to finish, click yes again to install inno setup and then it will install the just built
+Cosmos! (by default its installed on `C:\Users\username\AppData\Roaming\Cosmos User Kit`).
 
-Open Visual Studio 2022 and select `Open a project or a solution` and select the Moxie.sln from the Moxie_OS folder and then click the build icon on the top and the ISO should be generated in `Moxie_OS\bin\Debug\net6.0\Moxie.iso`!
+Open Visual Studio 2022 and select `Open a project or a solution` and select the Moxie.sln from the Moxie_OS folder and
+then click the build icon on the top and the ISO should be generated in `Moxie_OS\bin\Debug\net6.0\Moxie.iso`!
 
 ![](Images/IMG-01.png)
 
@@ -50,7 +54,9 @@ Open Visual Studio 2022 and select `Open a project or a solution` and select the
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Kiirx/Moxie/issues). You can also take a look at the [contributing guide](https://github.com/Kiirx/Moxie/blob/main/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to
+check [issues page](https://github.com/Kiirx/Moxie/issues). You can also take a look at
+the [contributing guide](https://github.com/Kiirx/Moxie/blob/main/CONTRIBUTING.md).
 
 ## Show your support
 

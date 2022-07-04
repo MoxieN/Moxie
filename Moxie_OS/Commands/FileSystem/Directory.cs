@@ -3,60 +3,59 @@ using System.Collections.Generic;
 using System.IO;
 using Bird;
 
-namespace Moxie.Commands.FileSystem
+namespace Moxie.Commands.FileSystem;
+
+internal class CreateDirectory : Command
 {
-    internal class CreateDirectory : Command
+    public CreateDirectory(string[] commandvalues) : base(commandvalues)
     {
-        public CreateDirectory(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        CommandValues = commandvalues;
+    }
 
-        public override void Execute(List<string> args)
+    public override void Execute(List<string> args)
+    {
+        try
         {
-            try
-            {
-                Directory.CreateDirectory(Kernel.CurrentDirectory + args[0]);
-            }
-            catch (Exception ex)
-            {
-                Kernel.bird.WriteLine($"e: {ex}");
-            }
+            Directory.CreateDirectory(Kernel.CurrentDirectory + args[0]);
         }
-
-        public override void Help()
+        catch (Exception ex)
         {
-            Kernel.bird.WriteLine("mkdir <directory (name/directory+name)> - Create directory to filesystem");        
+            Kernel.bird.WriteLine($"e: {ex}");
         }
     }
 
-    internal class RemoveDirectory : Command
+    public override void Help()
     {
-        public RemoveDirectory(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        Kernel.bird.WriteLine("mkdir <directory (name/directory+name)> - Create directory to filesystem");
+    }
+}
 
-        public override void Execute(List<string> args)
-        {
-            if (!args[0].EndsWith(@"\")) args[0] += @"\";
+internal class RemoveDirectory : Command
+{
+    public RemoveDirectory(string[] commandvalues) : base(commandvalues)
+    {
+        CommandValues = commandvalues;
+    }
 
-            try
-            {
-                if (Directory.Exists(Kernel.CurrentDirectory + args[0]))
-                    Directory.Delete(Kernel.CurrentDirectory + args[0]);
-                else
-                    Kernel.bird.WriteLine("e: Please enter a valid directory");
-            }
-            catch (Exception ex)
-            {
-                Kernel.bird.WriteLine($"e: {ex}");
-            }
-        }
+    public override void Execute(List<string> args)
+    {
+        if (!args[0].EndsWith(@"\")) args[0] += @"\";
 
-        public override void Help()
+        try
         {
-            Kernel.bird.WriteLine("rmdir <directory> - Removes directory from filesystem");
+            if (Directory.Exists(Kernel.CurrentDirectory + args[0]))
+                Directory.Delete(Kernel.CurrentDirectory + args[0]);
+            else
+                Kernel.bird.WriteLine("e: Please enter a valid directory");
         }
+        catch (Exception ex)
+        {
+            Kernel.bird.WriteLine($"e: {ex}");
+        }
+    }
+
+    public override void Help()
+    {
+        Kernel.bird.WriteLine("rmdir <directory> - Removes directory from filesystem");
     }
 }

@@ -2,55 +2,56 @@
 using Cosmos.System.FileSystem;
 using Cosmos.System.FileSystem.VFS;
 using Moxie.Core.Network;
-using Console = System.Console;
+using Moxie.Core.UnitTests;
 using Sys = Cosmos.System;
 
-namespace Moxie.Core
+namespace Moxie.Core;
+
+public static class Initializer
 {
-    public class Initializer
+    public static CosmosVFS fs;
+
+    /// <summary>
+    ///     Initialize the vFS
+    /// </summary>
+    public static void vFS()
     {
-        public CosmosVFS fs;
-        public NetworkManager networkManager = new();
-
-        public void vFS()
+        try
         {
-            try
-            {
-                Kernel.Log("Initiating file system...", 1);
-                fs = new CosmosVFS();
-                VFSManager.RegisterVFS(fs);
-                
-            }
-            catch (Exception ex)
-            {
-                Kernel.Log(ex.ToString(), 3);
-                Console.ReadKey();
-                Sys.Power.Shutdown();
-            }
-
-            Kernel.Log("File system initiated", 2);
-
-            UnitTests.vFS unitTest = new(true, "FileSystem");
-            unitTest.Execute();
+            Kernel.Log("Initiating file system...", 1);
+            fs = new CosmosVFS();
+            VFSManager.RegisterVFS(fs);
+        }
+        catch (Exception ex)
+        {
+            Kernel.Log(ex.ToString(), 3);
+            Console.ReadKey();
+            Sys.Power.Shutdown();
         }
 
-        public void DHCP()
+        Kernel.Log("File system initiated", 2);
+
+        // This is needed, a try catch wont say if the disk is properly ready to go
+        vFS unitTest = new(true, "FileSystem");
+        unitTest.Execute();
+    }
+
+    /// <summary>
+    ///     Initialize DHCP connection
+    /// </summary>
+    public static void DHCP()
+    {
+        Kernel.Log("Sending DHCP discover packet packet...", 1);
+        try
         {
-            Kernel.Log("Sending DHCP discover packet packet...", 1);
-            try
-            {
-                networkManager.DCHPConnect();
-            }
-            catch (Exception ex)
-            {
-                Kernel.Log(ex.ToString(), 3);
-            }
-            
-            UnitTests.NetworkConnection unitTest = new(false, "NetworkConnection");
-            unitTest.Execute();
-            
+            NetworkManager.DCHPConnect();
         }
-        
-        
+        catch (Exception ex)
+        {
+            Kernel.Log(ex.ToString(), 3);
+        }
+
+        NetworkConnection unitTest = new(false, "NetworkConnection");
+        unitTest.Execute();
     }
 }

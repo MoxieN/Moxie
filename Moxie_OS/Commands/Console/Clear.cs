@@ -1,20 +1,21 @@
-﻿namespace Moxie.Commands.Console
+﻿using Bird;
+
+namespace Moxie.Commands.Console;
+
+public class Clear : Command
 {
-    public class Clear : Bird.Command
+    public Clear(string[] commandvalues) : base(commandvalues)
     {
-        public Clear(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        CommandValues = commandvalues;
+    }
 
-        public override void Execute()
-        {
-            System.Console.Clear();
-        }
+    public override void Execute()
+    {
+        System.Console.Clear();
+    }
 
-        public override void Help()
-        {
-            Kernel.bird.WriteLine("clear - Clear the console");
-        }
+    public override void Help()
+    {
+        Kernel.bird.WriteLine("clear - Clear the console");
     }
 }

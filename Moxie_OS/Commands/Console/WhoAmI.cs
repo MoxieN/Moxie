@@ -1,23 +1,22 @@
 ﻿using Bird;
 using Moxie.Properties;
 
-namespace Moxie.Commands.Console
+namespace Moxie.Commands.Console;
+
+public class WhoAmI : Command
 {
-    public class WhoAmI : Command
+    public WhoAmI(string[] commandvalues) : base(commandvalues)
     {
-        public WhoAmI(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        CommandValues = commandvalues;
+    }
 
-        public override void Execute()
-        {
-            Kernel.bird.WriteLine(Info.user);
-        }
+    public override void Execute()
+    {
+        Kernel.bird.WriteLine(Info.user);
+    }
 
-        public override void Help()
-        {
-            Kernel.bird.WriteLine("whoami - returns hostname");
-        }
+    public override void Help()
+    {
+        Kernel.bird.WriteLine("whoami - returns hostname");
     }
 }

@@ -1,31 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Bird;
 
-namespace Moxie.Commands.FileSystem
+namespace Moxie.Commands.FileSystem;
+
+internal class Cat : Command
 {
-    internal class Cat : Command
+    public Cat(string[] commandvalues) : base(commandvalues)
     {
-        public Cat(string[] commandvalues) : base(commandvalues)
-        {
-            CommandValues = commandvalues;
-        }
+        CommandValues = commandvalues;
+    }
 
-        public override void Execute(List<string> args)
+    public override void Execute(List<string> args)
+    {
+        try
         {
-            try
-            {
-                Kernel.bird.WriteLine(System.IO.File.ReadAllText(Kernel.CurrentDirectory + args[0]));
-            }
-            catch (Exception ex)
-            {
-                Kernel.bird.WriteLine($"e: {ex}");
-            }
+            Kernel.bird.WriteLine(File.ReadAllText(Kernel.CurrentDirectory + args[0]));
         }
+        catch (Exception ex)
+        {
+            Kernel.bird.WriteLine($"e: {ex}");
+        }
+    }
 
-        public override void Help()
-        {
-            Kernel.bird.WriteLine("cat <file> - Prints file content");
-        }
+    public override void Help()
+    {
+        Kernel.bird.WriteLine("cat <file> - Prints file content");
     }
 }

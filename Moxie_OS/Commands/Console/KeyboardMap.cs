@@ -1,44 +1,43 @@
 ﻿using System.Collections.Generic;
 using Bird;
+using Cosmos.System;
+using Cosmos.System.ScanMaps;
 
-namespace Moxie.Commands.Console
+namespace Moxie.Commands.Console;
+
+public class KeyboardMap : Command
 {
-
-    public enum KeyMaps
+    public KeyboardMap(string[] commandvalues) : base(commandvalues)
     {
-        fr_FR,
-        en_US,
-        en_DE
+        CommandValues = commandvalues;
     }
-    
-    public class KeyboardMap : Command
+
+    public override void Execute(List<string> args)
     {
-        public KeyboardMap(string[] commandvalues) : base(commandvalues)
+        switch (args[0])
         {
-            CommandValues = commandvalues;
+            case "fr_FR":
+                KeyboardManager.SetKeyLayout(new FR_Standard());
+                break;
+
+            case "en_US":
+                KeyboardManager.SetKeyLayout(new US_Standard());
+                break;
+
+            case "de_DE":
+                KeyboardManager.SetKeyLayout(new DE_Standard());
+                break;
+
+            case "tr_TR":
+                KeyboardManager.SetKeyLayout(new TR_StandardQ());
+                break;
         }
 
-        public override void Execute(List<string> args)
-        {
-            //TODO: Handle this in a file insted of a class
-            /*
-            foreach (string keyMap in Enum.GetNames(typeof(KeyMaps)))
-            {
-                if(Info.langSelected == keyMap)
-                    Kernel.bird.WriteLine($"e: Keymap {keyMap} already selected");
-                else
-                {
-                    Cosmos.System.KeyboardManager.SetKeyLayout(new FR_Standard());
-                }
-            }*/
-            
-            Kernel.bird.WriteLine("e: Not Implemented");
-        }
-
-        public override void Help()
-        {
-            Kernel.bird.WriteLine("kbmp <KeyMap> - Change the KeyboardMap");
-        }
+        Kernel.bird.WriteLine("e: Not Implemented");
     }
-    
+
+    public override void Help()
+    {
+        Kernel.bird.WriteLine("kbmp <KeyMap> - Change the KeyboardMap");
+    }
 }
