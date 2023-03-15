@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "dotnet",
+            "name": "Moxie",
+            "projectPath": "",
+            "exePath": "",
+            "args": [],
+        },
+        
+    ]
+}
