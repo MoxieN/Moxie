@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <!--<RuntimeIdentifier>cosmos</RuntimeIdentifier>-->
         <Platform>cosmos</Platform>
         <SupportsX86Intrinsics>false</SupportsX86Intrinsics>
         <SelfContained>True</SelfContained>
@@ -12,7 +11,7 @@
         <Deployment>ISO</Deployment>
         <DebugMode>Source</DebugMode>
         <IgnoreDebugStubAttribute>False</IgnoreDebugStubAttribute>
-        <ISOFile>bin\Debug\net6.0\Moxie.iso</ISOFile>
+        <ISOFile>bin/Debug/net6.0/Moxie.iso</ISOFile>
         <CompileVBEMultiboot>False</CompileVBEMultiboot>
         <ExtractMapFile>False</ExtractMapFile>
         <VMware_StackCorruptionDetectionEnabled>True</VMware_StackCorruptionDetectionEnabled>
@@ -24,14 +23,14 @@
         <VMware_DebugMode>Source</VMware_DebugMode>
         <VMware_IgnoreDebugStubAttribute>False</VMware_IgnoreDebugStubAttribute>
         <VMware_CosmosDebugPort>Serial: COM1</VMware_CosmosDebugPort>
-        <VMware_VisualStudioDebugPort>Pipe: Cosmos\Serial</VMware_VisualStudioDebugPort>
+        <VMware_VisualStudioDebugPort>Pipe: Cosmos/Serial</VMware_VisualStudioDebugPort>
         <VMware_PxeInterface>192.168.0.8</VMware_PxeInterface>
         <VMware_VMwareEdition>Player</VMware_VMwareEdition>
         <VMware_EnableGDB>False</VMware_EnableGDB>
         <VMware_StartCosmosGDB>False</VMware_StartCosmosGDB>
         <VMware_EnableBochsDebug>True</VMware_EnableBochsDebug>
         <VMware_StartBochsDebugGui>False</VMware_StartBochsDebugGui>
-        <VMware_ISOFile>bin\Debug\net6.0\Moxie.iso</VMware_ISOFile>
+        <VMware_ISOFile>bin/Debug/net6.0/Moxie.iso</VMware_ISOFile>
         <VMware_CompileVBEMultiboot>False</VMware_CompileVBEMultiboot>
         <VMware_ExtractMapFile>False</VMware_ExtractMapFile>
         <Bochs_StackCorruptionDetectionEnabled>True</Bochs_StackCorruptionDetectionEnabled>
@@ -43,14 +42,14 @@
         <Bochs_DebugMode>Source</Bochs_DebugMode>
         <Bochs_IgnoreDebugStubAttribute>False</Bochs_IgnoreDebugStubAttribute>
         <Bochs_CosmosDebugPort>Serial: COM1</Bochs_CosmosDebugPort>
-        <Bochs_VisualStudioDebugPort>Pipe: Cosmos\Serial</Bochs_VisualStudioDebugPort>
+        <Bochs_VisualStudioDebugPort>Pipe: Cosmos/Serial</Bochs_VisualStudioDebugPort>
         <Bochs_PxeInterface>192.168.0.8</Bochs_PxeInterface>
         <Bochs_VMwareEdition>Player</Bochs_VMwareEdition>
         <Bochs_EnableGDB>False</Bochs_EnableGDB>
         <Bochs_StartCosmosGDB>False</Bochs_StartCosmosGDB>
         <Bochs_EnableBochsDebug>True</Bochs_EnableBochsDebug>
         <Bochs_StartBochsDebugGui>False</Bochs_StartBochsDebugGui>
-        <Bochs_ISOFile>bin\Debug\net6.0\Moxie.iso</Bochs_ISOFile>
+        <Bochs_ISOFile>bin/Debug/net6.0/Moxie.iso</Bochs_ISOFile>
         <Bochs_CompileVBEMultiboot>False</Bochs_CompileVBEMultiboot>
         <Bochs_ExtractMapFile>True</Bochs_ExtractMapFile>
         <ISO_StackCorruptionDetectionEnabled>True</ISO_StackCorruptionDetectionEnabled>
@@ -62,14 +61,14 @@
         <ISO_DebugMode>Source</ISO_DebugMode>
         <ISO_IgnoreDebugStubAttribute>False</ISO_IgnoreDebugStubAttribute>
         <ISO_CosmosDebugPort>Serial: COM1</ISO_CosmosDebugPort>
-        <ISO_VisualStudioDebugPort>Pipe: Cosmos\Serial</ISO_VisualStudioDebugPort>
+        <ISO_VisualStudioDebugPort>Pipe: Cosmos/Serial</ISO_VisualStudioDebugPort>
         <ISO_PxeInterface>192.168.0.8</ISO_PxeInterface>
         <ISO_VMwareEdition>Player</ISO_VMwareEdition>
         <ISO_EnableGDB>False</ISO_EnableGDB>
         <ISO_StartCosmosGDB>False</ISO_StartCosmosGDB>
         <ISO_EnableBochsDebug>True</ISO_EnableBochsDebug>
         <ISO_StartBochsDebugGui>False</ISO_StartBochsDebugGui>
-        <ISO_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</ISO_ISOFile>
+        <ISO_ISOFile>bin/Debug/net5.0/ProjectOrizonOS.iso</ISO_ISOFile>
         <ISO_CompileVBEMultiboot>False</ISO_CompileVBEMultiboot>
         <ISO_ExtractMapFile>False</ISO_ExtractMapFile>
         <IntelEdison_StackCorruptionDetectionEnabled>True</IntelEdison_StackCorruptionDetectionEnabled>
@@ -81,14 +80,14 @@
         <IntelEdison_DebugMode>Source</IntelEdison_DebugMode>
         <IntelEdison_IgnoreDebugStubAttribute>False</IntelEdison_IgnoreDebugStubAttribute>
         <IntelEdison_CosmosDebugPort>Serial: COM1</IntelEdison_CosmosDebugPort>
-        <IntelEdison_VisualStudioDebugPort>Pipe: Cosmos\Serial</IntelEdison_VisualStudioDebugPort>
+        <IntelEdison_VisualStudioDebugPort>Pipe: Cosmos/Serial</IntelEdison_VisualStudioDebugPort>
         <IntelEdison_PxeInterface>192.168.0.8</IntelEdison_PxeInterface>
         <IntelEdison_VMwareEdition>Player</IntelEdison_VMwareEdition>
         <IntelEdison_EnableGDB>False</IntelEdison_EnableGDB>
         <IntelEdison_StartCosmosGDB>False</IntelEdison_StartCosmosGDB>
         <IntelEdison_EnableBochsDebug>True</IntelEdison_EnableBochsDebug>
         <IntelEdison_StartBochsDebugGui>False</IntelEdison_StartBochsDebugGui>
-        <IntelEdison_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</IntelEdison_ISOFile>
+        <IntelEdison_ISOFile>bin/Debug/net5.0/ProjectOrizonOS.iso</IntelEdison_ISOFile>
         <IntelEdison_CompileVBEMultiboot>False</IntelEdison_CompileVBEMultiboot>
         <IntelEdison_ExtractMapFile>False</IntelEdison_ExtractMapFile>
         <PXE_StackCorruptionDetectionEnabled>True</PXE_StackCorruptionDetectionEnabled>
@@ -100,14 +99,14 @@
         <PXE_DebugMode>Source</PXE_DebugMode>
         <PXE_IgnoreDebugStubAttribute>False</PXE_IgnoreDebugStubAttribute>
         <PXE_CosmosDebugPort>Serial: COM1</PXE_CosmosDebugPort>
-        <PXE_VisualStudioDebugPort>Pipe: Cosmos\Serial</PXE_VisualStudioDebugPort>
+        <PXE_VisualStudioDebugPort>Pipe: Cosmos/Serial</PXE_VisualStudioDebugPort>
         <PXE_PxeInterface>192.168.0.8</PXE_PxeInterface>
         <PXE_VMwareEdition>Player</PXE_VMwareEdition>
         <PXE_EnableGDB>False</PXE_EnableGDB>
         <PXE_StartCosmosGDB>False</PXE_StartCosmosGDB>
         <PXE_EnableBochsDebug>True</PXE_EnableBochsDebug>
         <PXE_StartBochsDebugGui>False</PXE_StartBochsDebugGui>
-        <PXE_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</PXE_ISOFile>
+        <PXE_ISOFile>bin/Debug/net5.0/ProjectOrizonOS.iso</PXE_ISOFile>
         <PXE_CompileVBEMultiboot>False</PXE_CompileVBEMultiboot>
         <PXE_ExtractMapFile>False</PXE_ExtractMapFile>
         <USB_StackCorruptionDetectionEnabled>True</USB_StackCorruptionDetectionEnabled>
@@ -119,20 +118,20 @@
         <USB_DebugMode>Source</USB_DebugMode>
         <USB_IgnoreDebugStubAttribute>False</USB_IgnoreDebugStubAttribute>
         <USB_CosmosDebugPort>Serial: COM1</USB_CosmosDebugPort>
-        <USB_VisualStudioDebugPort>Pipe: Cosmos\Serial</USB_VisualStudioDebugPort>
+        <USB_VisualStudioDebugPort>Pipe: Cosmos/Serial</USB_VisualStudioDebugPort>
         <USB_PxeInterface>192.168.0.8</USB_PxeInterface>
         <USB_VMwareEdition>Player</USB_VMwareEdition>
         <USB_EnableGDB>False</USB_EnableGDB>
         <USB_StartCosmosGDB>False</USB_StartCosmosGDB>
         <USB_EnableBochsDebug>True</USB_EnableBochsDebug>
         <USB_StartBochsDebugGui>False</USB_StartBochsDebugGui>
-        <USB_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</USB_ISOFile>
+        <USB_ISOFile>bin/Debug/net5.0/ProjectOrizonOS.iso</USB_ISOFile>
         <USB_CompileVBEMultiboot>False</USB_CompileVBEMultiboot>
         <USB_ExtractMapFile>False</USB_ExtractMapFile>
         <Name>VMware User 001</Name>
         <HyperV_ExtractMapFile>False</HyperV_ExtractMapFile>
         <HyperV_CompileVBEMultiboot>False</HyperV_CompileVBEMultiboot>
-        <HyperV_ISOFile>bin\Debug\net5.0\ProjectOrizonOS.iso</HyperV_ISOFile>
+        <HyperV_ISOFile>bin/Debug/net5.0/ProjectOrizonOS.iso</HyperV_ISOFile>
         <HyperV_EnableBochsDebug>True</HyperV_EnableBochsDebug>
         <HyperV_StartCosmosGDB>False</HyperV_StartCosmosGDB>
         <HyperV_EnableGDB>False</HyperV_EnableGDB>
@@ -158,7 +157,7 @@
     <PropertyGroup>
         <EnableGDB>False</EnableGDB>
         <StartCosmosGDB>False</StartCosmosGDB>
-        <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
+        <VisualStudioDebugPort>Pipe: Cosmos/Serial</VisualStudioDebugPort>
         <CosmosDebugPort>Serial: COM1</CosmosDebugPort>
         <Launch>ISO</Launch>
         <Profile>ISO</Profile>
@@ -181,7 +180,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PlugsReference Include="$(MSBuildProjectDirectory)\modules\Moxie_Plugs.dll" />
+        <PlugsReference Include="$(MSBuildProjectDirectory)/modules/Moxie_Plugs.dll" />
     </ItemGroup>
 
     <ItemGroup>
@@ -194,7 +193,7 @@
 
     <ItemGroup>
       <Reference Include="Bird">
-        <HintPath>modules\Bird1.1.2.1716.dll</HintPath>
+        <HintPath>modules/Bird1.1.2.1716.dll</HintPath>
       </Reference>
     </ItemGroup>
 

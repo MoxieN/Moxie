@@ -1,22 +1,23 @@
-﻿using System;
+﻿using Moxie.filesystem;
+using System;
 using Sys = Cosmos.System;
 
 namespace Moxie;
 
 public class Kernel : Sys.Kernel
 {
-    //vFS
-    public static string CurrentDirectory = @"0:\";
-    public static string CurrentVolume = @"0:\";
+    public static Bird.Bird bird;
+    public VFs vfs;
 
     protected override void BeforeRun()
     {
         Console.Clear();
-        Console.WriteLine("Print something to get echoed back");
+        vfs.Init();
+        bird.WriteLine("Moxie 23 booted");
     }
 
     protected override void Run()
     {
-        Console.WriteLine(Console.ReadLine());
+        bird.HandleConsole("user", VFs.CurrentDirectory, ConsoleColor.White, ConsoleColor.DarkGreen, '#');
     }
 }

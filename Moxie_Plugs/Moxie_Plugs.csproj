@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>ClassLibrary1</RootNamespace>
+        <RootNamespace>Moxie_Plugs</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <AssemblyName>Moxie_Plugs</AssemblyName>
     </PropertyGroup>
