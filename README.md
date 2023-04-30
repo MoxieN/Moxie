@@ -7,9 +7,6 @@
   <a href="https://github.com/Kiirx/Moxie/blob/main/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/Kiirx/Moxie" />
   </a>
-  <a href="https://twitter.com/Kiiroxtv" target="_blank">
-    <img alt="Twitter: Kiiroxtv" src="https://img.shields.io/twitter/follow/Kiiroxtv.svg?style=social" />
-  </a>
 </p>
 
 > An OS made in C# with [Cosmos](https://github.com/CosmosOS/Cosmos)
@@ -64,5 +61,5 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2022 [Kiirox](https://github.com/Kiirx).<br />
+Copyright © 2023 [Kiirox](https://github.com/Kiirx).<br />
 This project is [MIT](https://github.com/Kiirx/ProjectOrizonOS/blob/main/LICENSE) licensed.

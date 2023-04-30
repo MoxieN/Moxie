@@ -1,6 +1,9 @@
 ﻿bin/
+Debug/
+net6.0/
 obj/
 .idea/
 .vs/
 .floo
 .flooignore
+.fleet
